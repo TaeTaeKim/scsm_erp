@@ -1,2 +1,219 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/orderList.css">
+{% endblock %}
+
+{% block body %}
+<div class="list_body">
+    <!-- 구매요청만 된 부분-->
+    <div class='order-div' id='order-buy-div' style="width: 100%;">
+        <!-- filter div -->
+        <div>
+            <form action="">
+                <select class="form-select">
+                    <option selected>검색항목 선택</option>
+                    <option value="1">품명</option>
+                    <option value="2">품번</option>
+                    <option value="3">분류코드</option>
+                </select>
+    
+                <input type="text" name="" id="" placeholder="검색">
+    
+                <input type="button" value="검색">
+            </form>
+        </div>
+        <!-- orderlist div -->
+        <div class="table-responsive order-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 1.2vw;">No.</th>
+                        <th scope="col" >품명</th>
+                        <th scope="col" >품번</th>
+                        <th scope="col" style="width: 15vw;" >분류코드</th>
+                        <th scope="col" >수량</th>
+                        <th scope="col" >단위</th>
+                        <th scope="col" >구매요청일</th>
+                        <th scope="col" >발주체크</th>
+                        <th scope="col" >발주일자</th>
+                        <th scope="col" >입고여부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck">
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck">
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck">
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck">
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck">
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck">
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
+        
+    </div>
+    <!-- 발주완료 후 입고완료 전 -->
+    <div class='order-div' id="order-get-div" style="width: 100%;">
+        <div>
+            <form action="">
+                <select class="form-select">
+                    <option selected>검색항목 선택</option>
+                    <option value="1">품명</option>
+                    <option value="2">품번</option>
+                    <option value="3">분류코드</option>
+                </select>
+    
+                <input type="text" name="" id="" placeholder="검색">
+    
+                <input type="button" value="검색">
+            </form>
+        </div>
+        <!-- orderlist div -->
+        <div class="table-responsive order-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 1.2vw;">No.</th>
+                        <th scope="col" >품명</th>
+                        <th scope="col" >품번</th>
+                        <th scope="col" style="width: 15vw;" >분류코드</th>
+                        <th scope="col" >수량</th>
+                        <th scope="col" >단위</th>
+                        <th scope="col" >구매요청일</th>
+                        <th scope="col" >발주체크</th>
+                        <th scope="col" >발주일자</th>
+                        <th scope="col" >입고여부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck" checked>
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>라디에이터</td>
+                        <td>10230</td>
+                        <td>cool</td>
+                        <td>1</td>
+                        <td>EA</td>
+                        <td>2022-01-23</td>
+                        <td>
+                            <input type="checkbox"  name="buycheck" class="buycheck" checked>
+                        </td>
+                        <td>2022-01-25</td>
+                        <td>
+                            <input type="checkbox" name="getcheck" class="getcheck"> 
+                        </td>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
