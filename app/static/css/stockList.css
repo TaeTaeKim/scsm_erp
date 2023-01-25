@@ -1,0 +1,28 @@
+.list_body {
+    display: flex;
+}
+
+#side-var {
+    border-left: 1px solid gray;
+}
+
+#side-var > div{
+    margin :0 0.7rem 1rem 0.7rem ;
+}
+
+#stock-detail{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+#stock-detail div{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+#buy-stock {
+    margin-bottom: 1rem;
+}
+#use-stock{
+    margin-bottom: 1rem;
+}
