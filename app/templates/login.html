@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>SCSm Stock Management System</title>
+</head>
+<body>
+    <!-- 로고와 로그인 페이지 -->
+    <div class="loginMain">
+        <!-- 이미지 div -->
+        <div>
+            <img src="../static/img/logo_scsm.png" alt="SCSm logo">
+        </div>
+        <!-- Login form -->
+        <div class="loginForm">
+            <form action="/login" method="post">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="로그인">
+            </form> 
+        </div>
+    </div>
+</body>
+</html>
