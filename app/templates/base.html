@@ -12,17 +12,17 @@
 </head>
 <body>
     <div class="topnav">
-        <div class="topimage"><a href="#"><img src="../static/img/logo_scsm.png" alt="" style="height: 100%; width: 100%; "></a></div>
+        <div class="topimage"><a href="/"><img src="../static/img/logo_scsm.png" alt="" style="height: 100%; width: 100%; "></a></div>
         <div class="topmenu">
             <div><p><a href="#">재고현황</a></p></div>
             <div><p><a href="#">발주목록</a></p></div>
             <div><p><a href="#">기기관리</a></p></div>
             <div><p><a href="#">계정관리</a></p></div>
-            <div>{% block user %}{% endblock %} 접속중</div>
+            <div>{{user}} 접속중</div>
             <div><p><a href="#">비밀번호 변경</a></p></div>
             <div><p><a href="#">로그아웃</a></p></div>
         </div>
     </div>
-    {% black body %}{% endblock %}
+    {% block body %}{% endblock %}
 </body>
 </html>
