@@ -1,0 +1,19 @@
+.topnav{
+    margin: 0 5vw 0 5vw;
+    display: flex;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.7vw;
+}
+.topimage{
+    width: 15vw;
+
+}
+.topmenu{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+}
