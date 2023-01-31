@@ -1,0 +1,87 @@
+#stock_management{
+    display: flex;
+    height: 130vh;
+    margin: 0 1%  0 1%;
+    overflow: auto;
+}
+#stock_management img{
+    width: 18vw;
+    height: 18vh;
+}
+
+
+/* 왼쪽 사이드 css */
+#left_stock_manage{
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-right: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 19%;
+}
+#add_form{
+    display: flex;
+    flex-direction: column;
+}
+#add_form > div{
+    display: flex;
+    justify-content: space-between;
+}
+#add_form input{
+    width: 13vw;
+}
+#edit_form{
+    display: flex;
+    flex-direction: column;
+}
+#edit_form > div{
+    display: flex;
+    justify-content: space-between;
+}
+#edit_form input{
+    width: 13vw;
+}
+#add_tel{
+    display: flex;
+    flex-direction: column;
+}
+#add_tel input{
+    width: 5vw;
+}
+
+#edit_tel{
+    display: flex;
+    flex-direction: column;
+}
+#edit_tel input{
+    width: 5vw;
+}
+
+/*  가운데 detail css */
+#stock_detail{
+    width: 55%;
+}
+#stock_detail_top{
+    display: flex;
+    padding-bottom: 1vh;
+    border-bottom: 1px solid gray;
+    margin-bottom: 1vh;
+}
+#stock_img {
+    margin-right: 1rem;
+}
+
+#stock_detail img{
+    width: 30vw;
+    height: 30vh;
+}
+
+
+/* 오른쪽 사이드 css */
+#right_stock_list{
+    width: 24%;
+    padding-left: 1rem;
+    margin-left: 1rem;
+    border-left: 1px solid gray;
+}

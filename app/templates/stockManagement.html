@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/stockManagement.css">
+{% endblock %}
+
+
+{% block body %}
+<!-- 화면 전체를 감싸는 div -->
+<div id="stock_management">
+    <!-- 왼쪽 사이드 물품등록, 물품 삭제 div -->
+    <div id="left_stock_manage">
+        <!-- 물품등록 -->
+        <div id="add_stock">
+            <h2>물품등록</h2>
+            <img src="" alt="" id="stockimg_add">
+            <form action="" method="post" id="add_form">
+                <div>
+                    <input type="file" name="imgfile" id="addimg">
+                </div>
+                <div>
+                    <label for="stock_name">품명</label>
+                    <input type="text" name="stock_name" id="" required>
+                </div>
+                <div>
+                    <label for="stock_id">품번</label>
+                    <input type="text" name="stock_id" id="" required>
+                </div>
+                <div>
+                    <label for="stock_purchase">구매처</label>
+                    <input type="text" name="stock_purchase" id="">
+                </div>
+                <div>
+                    <label for="stock_num">수량</label>
+                    <input type="number" name="stock_num" id="">
+                </div>
+                <div>
+                    <label for="stock_unit">단위</label>
+                    <input type="number" name="stock_unit" id="">
+                </div>
+                
+                
+                <div id="edit_tel">
+                    <label for="purchase_num">연락처</label>
+                    <div>
+                        <input type="tel" name="purchase_num_0" id="" pattern="[0-9]{3}" placeholder="010">
+                        <span>-</span>
+                        <input type="tel" name="purchase_num_1" id=""  placeholder="1234">
+                        <span>-</span>
+                        <input type="tel" name="purchase_num_2" id="" placeholder="1234">
+                    </div>
+                </div>
+                <div>
+                    <label for="purchase_email">이메일</label>
+                    <input type="email" name="purchase_email" id="" placeholder="example@gmail.com">
+                </div>
+                <input type="submit" name="" id="" value="등록">
+                
+                
+            </form>
+
+        </div>
+        <!-- 물품삭제, 편집 -->
+        <div id="edit_stock">
+            <h2>물품수정</h2>
+            <img src="" alt="" id="stockimg_edit">
+            <form action="" method="post" id="edit_form">
+                <div>
+                    <input type="file" name="imgfile" id="editimg">
+                </div>
+                <div>
+                    <label for="stock_name">품명</label>
+                    <input type="text" name="stock_name" id="" required>
+                </div>
+                <div>
+                    <label for="stock_id">품번</label>
+                    <input type="text" name="stock_id" id="" required>
+                </div>
+                <div>
+                    <label for="stock_purchase">구매처</label>
+                    <input type="text" name="stock_purchase" id="">
+                </div>
+                <div>
+                    <label for="stock_purchase">수량</label>
+                    <input type="number" name="stock_num" id="">
+                </div>
+                
+                
+                <div id="add_tel">
+                    <label for="purchase_num">연락처</label>
+                    <div>
+                        <input type="tel" name="purchase_num_0 id="" pattern="[0-9]{3}" placeholder="010">
+                        <span>-</span>
+                        <input type="tel" name="purchase_num_1" id=""  placeholder="1234">
+                        <span>-</span>
+                        <input type="tel" name="purchase_num_2" id="" placeholder="1234">
+                    </div>
+                </div>
+                <div>
+                    <label for="purchase_email">이메일</label>
+                    <input type="email" name="purchase_email" id="" placeholder="example@gmail.com">
+                </div>
+                <input type="submit" name="" id="" value="등록">
+                
+                
+            </form>
+        </div>
+
+    </div>
+    
+    
+    <!-- 가운데 상세 정보 페이지 div -->
+    <div id="stock_detail">
+        <div id="stock_detail_top">
+            <div id="stock_img" >
+                <img src="" alt="">
+            </div>
+
+            <div id="stock_info">
+                <p>품명 : ㅁㄴㅇㄹ</p>
+                <p>품번 : </p>
+                <p>구매처 : </p>
+                <p>연락처 : </p>
+                <p>이메일 : </p>
+                <p>설명 : </p>
+            </div>
+        </div>
+
+        <div id="stock_detail_bottom">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" >구분</th>
+                        <th scope="col" >일자</th>
+                        <th scope="col" >수량</th>
+                        <th scope="col" >단위</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>구매요청</td>
+                        <td>2022-01-01</td>
+                        <td>2</td>
+                        <td>EA</td>
+                    </tr>
+                    <tr>
+                        <td>발주</td>
+                        <td>2022-01-01</td>
+                        <td>2</td>
+                        <td>EA</td>
+                    </tr>
+                    <tr>
+                        <td>입고</td>
+                        <td>2022-01-01</td>
+                        <td>2</td>
+                        <td>EA</td>
+                    </tr>
+                </tbody>
+    
+            </table>
+
+        </div>
+    </div>
+    <!-- 오른쪽 사이드 물품목록 div -->
+    <div id="right_stock_list">
+        <h2>물품리스트</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" >품명</th>
+                    <th scope="col" >품번</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>라디에이터</td>
+                    <td>10230</td>
+                </tr>
+                <tr>
+                    <td>라디에이터</td>
+                    <td>10230</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="../static/js/stockManagement.js"></script>
+{% endblock %}

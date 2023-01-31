@@ -36,6 +36,11 @@ async def stock_list():
     template = app.template_env.get_template('orderList.html')
     return Response(content=template.render(user='admin'), media_type="text/html")
 
+@app.get('/stock_management')
+async def stock_management():
+    template = app.template_env.get_template('stockManagement.html')
+    return Response(content=template.render(user='admin'),media_type="text/html")
+
 
 if __name__ =="__main__":
     uvicorn.run(app,debug =True)
