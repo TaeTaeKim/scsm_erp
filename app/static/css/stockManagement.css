@@ -15,46 +15,32 @@
     padding-right: 1rem;
     margin-right: 1rem;
     border-right: 1px solid gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     width: 19%;
 }
-#add_form{
+#stock_form{
     display: flex;
     flex-direction: column;
 }
-#add_form > div{
+#stock_form > div{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
-#add_form input{
+.primary_info{
     width: 13vw;
 }
-#edit_form{
-    display: flex;
-    flex-direction: column;
-}
-#edit_form > div{
-    display: flex;
-    justify-content: space-between;
-}
-#edit_form input{
-    width: 13vw;
-}
-#add_tel{
-    display: flex;
-    flex-direction: column;
-}
-#add_tel input{
+.submit_button{
     width: 5vw;
 }
-
-#edit_tel{
+#stock_tel{
     display: flex;
     flex-direction: column;
 }
-#edit_tel input{
+#stock_tel{
+    display: flex;
+    flex-direction: column;
+}
+#stock_tel input{
     width: 5vw;
 }
 

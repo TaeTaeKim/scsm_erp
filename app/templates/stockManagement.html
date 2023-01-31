@@ -13,35 +13,35 @@
     <div id="left_stock_manage">
         <!-- 물품등록 -->
         <div id="add_stock">
-            <h2>물품등록</h2>
+            <h2>물품등록 / 수정 / 삭제</h2>
             <img src="" alt="" id="stockimg_add">
-            <form action="" method="post" id="add_form">
+            <form action="" method="post" id="stock_form">
                 <div>
-                    <input type="file" name="imgfile" id="addimg">
+                    <input class="primary_info" type="file" name="imgfile" id="addimg">
                 </div>
                 <div>
                     <label for="stock_name">품명</label>
-                    <input type="text" name="stock_name" id="" required>
+                    <input class="primary_info" type="text" name="stock_name" id="" required>
                 </div>
                 <div>
                     <label for="stock_id">품번</label>
-                    <input type="text" name="stock_id" id="" required>
+                    <input class="primary_info" type="text" name="stock_id" id="" required>
                 </div>
                 <div>
                     <label for="stock_purchase">구매처</label>
-                    <input type="text" name="stock_purchase" id="">
+                    <input class="primary_info" type="text" name="stock_purchase" id="">
                 </div>
                 <div>
                     <label for="stock_num">수량</label>
-                    <input type="number" name="stock_num" id="">
+                    <input class="primary_info" type="number" name="stock_num" id="">
                 </div>
                 <div>
                     <label for="stock_unit">단위</label>
-                    <input type="number" name="stock_unit" id="">
+                    <input class="primary_info" type="text" name="stock_unit" id="">
                 </div>
                 
                 
-                <div id="edit_tel">
+                <div id="stock_tel">
                     <label for="purchase_num">연락처</label>
                     <div>
                         <input type="tel" name="purchase_num_0" id="" pattern="[0-9]{3}" placeholder="010">
@@ -53,58 +53,17 @@
                 </div>
                 <div>
                     <label for="purchase_email">이메일</label>
-                    <input type="email" name="purchase_email" id="" placeholder="example@gmail.com">
+                    <input class="primary_info" type="email" name="purchase_email" id="" placeholder="example@gmail.com">
                 </div>
-                <input type="submit" name="" id="" value="등록">
-                
+                <div>
+
+                    <input class="submit_button" type="submit" name="add_button" id="" value="등록">
+                    <input class="submit_button" type="submit" name="update_button" id="" value="수정">
+                    <input class="submit_button" type="submit" name="delete_button" id="" value="삭제">
+                </div>
                 
             </form>
 
-        </div>
-        <!-- 물품삭제, 편집 -->
-        <div id="edit_stock">
-            <h2>물품수정</h2>
-            <img src="" alt="" id="stockimg_edit">
-            <form action="" method="post" id="edit_form">
-                <div>
-                    <input type="file" name="imgfile" id="editimg">
-                </div>
-                <div>
-                    <label for="stock_name">품명</label>
-                    <input type="text" name="stock_name" id="" required>
-                </div>
-                <div>
-                    <label for="stock_id">품번</label>
-                    <input type="text" name="stock_id" id="" required>
-                </div>
-                <div>
-                    <label for="stock_purchase">구매처</label>
-                    <input type="text" name="stock_purchase" id="">
-                </div>
-                <div>
-                    <label for="stock_purchase">수량</label>
-                    <input type="number" name="stock_num" id="">
-                </div>
-                
-                
-                <div id="add_tel">
-                    <label for="purchase_num">연락처</label>
-                    <div>
-                        <input type="tel" name="purchase_num_0 id="" pattern="[0-9]{3}" placeholder="010">
-                        <span>-</span>
-                        <input type="tel" name="purchase_num_1" id=""  placeholder="1234">
-                        <span>-</span>
-                        <input type="tel" name="purchase_num_2" id="" placeholder="1234">
-                    </div>
-                </div>
-                <div>
-                    <label for="purchase_email">이메일</label>
-                    <input type="email" name="purchase_email" id="" placeholder="example@gmail.com">
-                </div>
-                <input type="submit" name="" id="" value="등록">
-                
-                
-            </form>
         </div>
 
     </div>
