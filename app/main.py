@@ -42,5 +42,11 @@ async def stock_management():
     return Response(content=template.render(user='admin'),media_type="text/html")
 
 
+@app.get('/account')
+async def account():
+    template = app.template_env.get_template('account.html')
+    return Response(content=template.render(),media_type='text/html')
+
+
 if __name__ =="__main__":
     uvicorn.run(app,debug =True)

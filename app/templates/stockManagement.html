@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
+<link rel="stylesheet" href="../static/css/style.css">
 <link rel="stylesheet" href="../static/css/bootstrap.css">
 <link rel="stylesheet" href="../static/css/stockManagement.css">
 {% endblock %}
@@ -13,7 +14,7 @@
     <div id="left_stock_manage">
         <!-- 물품등록 -->
         <div id="add_stock">
-            <h2>물품등록 / 수정 / 삭제</h2>
+            <h2>물품관리</h2>
             <img src="" alt="" id="stockimg_add">
             <form action="" method="post" id="stock_form">
                 <div>
@@ -38,6 +39,14 @@
                 <div>
                     <label for="stock_unit">단위</label>
                     <input class="primary_info" type="text" name="stock_unit" id="">
+                </div>
+                <div>
+                    <label for="stock_unit">제조사</label>
+                    <input class="primary_info" type="text" name="stock_manufacture" id="">
+                </div>
+                <div>
+                    <label for="stock_unit">단가</label>
+                    <input class="primary_info" type="number" name="stock_price" id="">
                 </div>
                 
                 

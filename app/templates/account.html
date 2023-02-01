@@ -1,2 +1,69 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/account.css">
+
+{% endblock %}
+
+
+{% block body %}
+<div class="main-wrapper">
+    <div class="account-manage">
+        <div class="account-create">
+            <h2>계정 관리</h2>
+            <div class="account-form">
+                <form action="">
+                    <div>
+                        <p>사용자명</p>
+                        <input type="text" placeholder="사용자명" required id="add_username">
+                    </div>
+                    <div>
+                        <p>ID</p>
+                        <input type="button" id="idcheck" value="중복확인">
+                        <input type="text" placeholder="ID" required id="add_id">
+                    </div>
+                    <div>
+                        <p>비밀번호</p>
+                        <input type="password" required id="add_pw">
+                    </div>
+                    <div>
+                        <p>비밀번호 확인</p>
+                        <input type="password" required id="add_pwValid">
+                    </div>
+                    <div style="justify-content: flex-end;">
+                        <input type="button" name="add_account" value="계정등록" id="add_user">
+                        <input type="button" name="update_accout" value="계정변경" id="">
+                        <input type="button" name="delete_account" value="계정삭제"  id="">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="account-auth">
+        <h2>계정 목록</h2>
+        <table class="account-table table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">사용자명</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">권한</th>
+                    <th scope="col">비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>관리자</td>
+                    <td>admin</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+
+</div>
+{% endblock %}

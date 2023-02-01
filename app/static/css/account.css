@@ -1,0 +1,65 @@
+.main-wrapper{
+    display: flex;
+    height: 85vh;
+    margin: 1vh 3vw 0 3vw;
+}
+.account-manage{
+    padding-right: 1vw;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-right: 1px solid black;
+}
+.account-form div{
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh 0 1vh 0;
+}
+
+
+
+
+
+
+
+
+.account-manage{
+    width: 25vw;
+    margin: 0 2vw 0 0;
+}
+.account-auth{
+    width: 67vw;
+}
+.account-auth h2{
+    padding-left:3vw;
+}
+
+
+
+
+.account-table{
+    margin: 2vh 0 0 0;
+    width: 100%;
+}
+th{
+    background-color: #ddd;
+}
+td{
+    background-color: #f1f1f1;
+}
+
+.auth{
+    display: flex;
+    justify-content: space-around;
+}
+.auth>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type='submit']{
+    margin-left: auto;
+    margin-right: 0;
+    font-size: min(1.5vh,1.5vw);
+}
