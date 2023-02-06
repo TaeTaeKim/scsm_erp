@@ -6,6 +6,8 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from jinja2 import Environment, FileSystemLoader
 
+from router import account_router
+
 app = FastAPI()
 app.mount('/static',StaticFiles(directory='static'),name='static')
 templates = Environment(
@@ -13,6 +15,7 @@ templates = Environment(
 )
 
 app.template_env = templates
+app.include_router(account_router.account_router)
 
 @app.get('/')
 async def index():

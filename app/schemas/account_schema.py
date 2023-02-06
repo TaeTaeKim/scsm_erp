@@ -3,14 +3,24 @@ from typing import Union
 
 from pydantic import BaseModel
 
-class Account(BaseModel):
-    id : str
-    username : str
-    userpasswd : str
-    user_order : bool = False
-    user_instock : bool = False
-    user_item  : bool = False
-    user_management : bool = False
-    user_session_id : Union[str,None] = None
+class AccountBasic(BaseModel):
+    account_id : str
+    account_passwd : str
+
+
+class AccountAuth(AccountBasic):
+    account_order : bool = False
+    account_instock : bool = False
+    account_item  : bool = False
+    account_management : bool = False
+
+
+class AccountSchema(AccountAuth):
+    account_name : str
+    account_session_id : Union[str,None] = None
+
+    class Config:
+        orm_mode = True
+
 
 

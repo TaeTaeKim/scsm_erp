@@ -1,9 +1,9 @@
 
 from sqlalchemy import Column, String, Boolean
 
-from app.database.mysql import data_base
+from database.mysql import data_base
 
-class account(data_base):
+class AccountModel(data_base):
     __tablename__ = "accounts"
 
     __table_args__ = {'mysql_collate':'utf8_general_ci','extend_existing':True}
