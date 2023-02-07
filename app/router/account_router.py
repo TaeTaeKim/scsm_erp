@@ -1,10 +1,13 @@
-from fastapi import APIRouter,Depends
+from fastapi import APIRouter,Depends, Response
+from fastapi.staticfiles import StaticFiles
+from jinja2 import Environment,FileSystemLoader
+from schemas.account_schema import AccountOut
 
-from database.mysql import get_db
 from schemas.account_schema import AccountSchema, AccountBasic, AccountAuth
 from sqlalchemy.orm import Session
 
 from service.account_service import AccountService
+from database.mysql import get_db
 
 account_router = APIRouter(
     prefix='/account',
@@ -42,6 +45,23 @@ async def reauth_account(account : AccountAuth, db:Session = Depends(get_db)):
     user_management = account.account_management
     reauth = account_service.reauth_account(reauth_id,user_order,user_instock,user_item,user_management,db)
     return reauth
+
+
+@account_router.get('/get_user')
+async def get_users(db:Session = Depends(get_db)):
+    users = account_service.find_all(db)
+    return [AccountOut(
+        account_id=user.account_id,
+        account_instock=user.account_instock,
+        account_item=user.account_item,
+        account_management=user.account_management,
+        account_name=user.account_name,
+        account_order=user.account_order) for user in users]
+
+@account_router.get('/id_validation')
+async def id_validate(id:str, db:Session = Depends(get_db)):
+    return account_service.id_validation(id,db)
+
         
 
 

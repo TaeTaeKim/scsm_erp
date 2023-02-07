@@ -34,8 +34,8 @@
                     </div>
                     <div style="justify-content: flex-end;">
                         <input type="button" name="add_account" value="계정등록" id="add_user">
-                        <input type="button" name="update_accout" value="계정변경" id="">
-                        <input type="button" name="delete_account" value="계정삭제"  id="">
+                        <input type="button" name="update_accout" value="계정변경" id="update_user">
+                        <input type="button" name="delete_account" value="계정삭제"  id="delete_user">
                     </div>
                 </form>
             </div>
@@ -53,12 +53,8 @@
                     <th scope="col">비고</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="account-tbody">
                 <tr>
-                    <td>관리자</td>
-                    <td>admin</td>
-                    <td></td>
-                    <td></td>
                 </tr>
             </tbody>
             
@@ -66,4 +62,5 @@
     </div>
 
 </div>
+<script src="../static/js/account.js"></script>
 {% endblock %}

@@ -60,3 +60,17 @@ class AccountService():
 
             db.commit()
             return True
+
+
+    def find_all(self,db):
+        users = db.query(AccountModel).all()
+        return users
+
+    def id_validation(self,id,db):
+
+        # id가 중복되면 True / 아니면 False를 반환하는 함수.
+        user = db.query(AccountModel).filter(AccountModel.account_id==id).one_or_none()
+        if user:
+            return True
+        else:
+            return False

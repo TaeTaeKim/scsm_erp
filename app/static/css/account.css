@@ -63,3 +63,8 @@ input[type='submit']{
     margin-right: 0;
     font-size: min(1.5vh,1.5vw);
 }
+
+
+.auth-label{
+    margin-right: 0.5rem;
+}
