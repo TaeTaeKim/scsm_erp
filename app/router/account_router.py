@@ -23,9 +23,9 @@ async def save_account(account : AccountSchema, db: Session=Depends(get_db)):
     return save
 
 
-@account_router.post('/delete')
-async def delete_account(account : AccountBasic, db:Session=Depends(get_db)):
-    delete_id = account.account_id
+@account_router.get('/delete')
+async def delete_account(id : str, db:Session=Depends(get_db)):
+    delete_id = id
     delete = account_service.delete_account(id=delete_id, db=db)
     return delete
 

@@ -2,7 +2,6 @@
 var idcheck = false;
 // 중복여부
 var isOverlap = true;
-var id;
 // user 클릭시 form에 넣어주는 함수
 function clickaccount(id){
     var id = id.split('-')[0];
@@ -23,7 +22,6 @@ $(document).ready(function(){
         async:true,
         success:function(res){
             res.forEach(e=>{
-                console.log(e)
                 $('#account-tbody').append(
                     `
                     <tr>
@@ -65,6 +63,7 @@ $(document).ready(function(){
 // 유저 등록 jquery
 $("#add_user").on('click', function(e){
     e.preventDefault()
+    var id = $('#add_id').val();
     var username = $('#add_username').val();
     var password = $("#add_pw").val();
     var password_check = $("#add_pwValid").val();
@@ -78,13 +77,6 @@ $("#add_user").on('click', function(e){
         alert("중복체크가 필요합니다.");
         return
     }else{
-        // 중복체크 후 아이디가 바뀌었는지 체크
-        if($("#add_id").val() != id){
-            alert("아이디를 다시 중복체크 해야합니다");
-            idcheck = false;
-            isOverlap = true;
-            return
-        }
         // 비밀번호가 다른지 확인
         if(password != password_check){
             alert('비밀번호가 다릅니다');
@@ -146,6 +138,7 @@ $('#idcheck').click(
                     if(!isOverlap){
                         idcheck = true
                         alert('사용할 수 있는 아이디 입니다.')
+                        $("#add_id").prop('disabled',true);
                     }else{
                         alert('이미 존재하는 아이디 입니다.')
                     }
@@ -188,6 +181,54 @@ function saveauth(id){
     }
 }
 //계졍 삭제
+$("#delete_user").on('click',function(e){
+    e.preventDefault();
+    var id = $('#add_id').val();
+    if(id=='admin'){
+        alert("admin 계정은 삭제할 수 없습니다.");
+    }
 
+    $.ajax({
+        url:'/account/delete',
+        type:'get',
+        data : {
+            "id":id,
+        },
+        success:function(res){
+            alert(`${id} 계정을 삭제했습니다.`);
+            window.location.reload();
+        },
+        error:function(){
+            alert("계정 삭제에 실패했습니다. 다시 시도해 주세요");
+        }
+    })
+})
 //비밀번호 변경
+$("#update_user").on('click',function(e){
+    e.preventDefault();
+    var id = $('#add_id').val();
+    var password = $("#add_pw").val();
+    var password_valid = $('#add_pwValid').val();
+    if(!id){
+        alert("변경할 사용자를 선택해주세요");
+        return
+    }
+    if (password != password_valid){
+        alert("비밀번호가 다릅니다");
+        return
+    }
 
+    $.ajax({
+        url:'/account/update',
+        type:'post',
+        dataType:'json',
+        contentType:'application/json; charset=utf-8',
+        data:JSON.stringify({
+            account_id : id,
+            account_passwd : password
+        }),
+        success:function(res){
+            alert("비밀번호 변경에 성공했습니다.");
+        }
+    })
+})
