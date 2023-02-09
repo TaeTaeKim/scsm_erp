@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="../static/css/topnav.css">
     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
     {% block head %}{% endblock %}
-    <title>SCSm Stock Management System</title>
+    <title>SCSm ERP</title>
 </head>
 <body>
     <div class="topnav">
-        <div class="topimage"><a href="/"><img src="../static/img/logo_scsm.png" alt="" style="height: 100%; width: 100%; "></a></div>
+        <div class="topimage"><a href="/stock_list"><img src="../static/img/logo_scsm.png" alt="" style="height: 100%; width: 100%; "></a></div>
         <div class="topmenu">
             <div><a href="/stock_list">재고현황</a></div>
             <div><a href="/order_list">발주목록</a></div>
             <div><a href="/stock_management">물품관리</a></div>
             <div><a href="/account">계정관리</a></div>
             <div>{{user}} 접속중</div>
-            <div><a href="#">로그아웃</a></div>
+            <div><a href="/auth/logout">로그아웃</a></div>
         </div>
     </div>
     

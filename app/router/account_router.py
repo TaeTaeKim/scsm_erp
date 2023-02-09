@@ -1,6 +1,4 @@
-from fastapi import APIRouter,Depends, Response
-from fastapi.staticfiles import StaticFiles
-from jinja2 import Environment,FileSystemLoader
+from fastapi import APIRouter,Depends
 from schemas.account_schema import AccountOut
 
 from schemas.account_schema import AccountSchema, AccountBasic, AccountAuth

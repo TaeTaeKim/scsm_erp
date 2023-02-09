@@ -41,6 +41,7 @@ CREATE TABLE accounts(
     account_instock BOOLEAN NOT NULL DEFAULT 0,
     account_item BOOLEAN NOT NULL DEFAULT 0,
     account_management BOOLEAN NOT NULL DEFAULT 0,
-    account_session_id VARCHAR(255)
+    account_session_id VARCHAR(255) UNIQUE,
+    session_expire DATETIME
     
 );

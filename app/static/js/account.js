@@ -7,7 +7,6 @@ function clickaccount(id){
     var id = id.split('-')[0];
     var name = $(`#${id}-name`).text();
 
-    console.log(name);
     $('#add_username').val(name);
     $('#add_id').val(id);
     

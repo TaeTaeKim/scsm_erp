@@ -1,5 +1,5 @@
 
-from sqlalchemy import Column, String, Boolean
+from sqlalchemy import Column, String, Boolean,Date
 
 from database.mysql import data_base
 
@@ -16,4 +16,5 @@ class AccountModel(data_base):
     account_item = Column(Boolean, default=False, nullable=False)
     account_management = Column(Boolean, default=False, nullable=False)
     account_session_id = Column(String(255))
+    session_expire = Column(Date)
 
