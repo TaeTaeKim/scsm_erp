@@ -13,9 +13,14 @@ CREATE TABLE items(
 
 CREATE TABLE orders(
     order_index INT AUTO_INCREMENT PRIMARY KEY,
-    order_id VARCHAR(50) NOT NULL,
     order_item INT NOT NULL,
     order_status INT NOT NULL DEFAULT 0,
+    order_num FLOAT(7,2) NOT NULL,
+    order_requestdate DATETIME,
+    order_purchasedate DATETIME,
+    order_instockdate DATETIME,
+    order_canceldate DATETIME,
+    
 
     CONSTRAINT FOREIGN KEY(order_item) REFERENCES items(item_code) ON DELETE CASCADE
     
@@ -23,14 +28,9 @@ CREATE TABLE orders(
 
 CREATE TABLE orderLogs(
     order_log_index INT AUTO_INCREMENT PRIMARY KEY,
-    -- order_id와 item_id를 섞어도 unique값이 안된다. -> 상태 로그를 싹 테이블로 나누고 view를 만드는 방법?
-    order_log_identifier VARCHAR(50) NOT NULL,
     order_type INT NOT NULL,
     order_log_date DATETIME NOT NULL,
-    order_log_num FLOAT(7,2) NOT NULL,
-
-    CONSTRAINT FOREIGN KEY(order_log_identifier) REFERENCES orders(order_identifier) ON DELETE CASCADE,
-    CONSTRAINT FOREIGN KEY(order_log_item) REFERENCES orders(order_item) ON DELETE CASCADE
+    order_log_num FLOAT(7,2) NOT NULL
     
 );
 CREATE TABLE usages(
