@@ -16,9 +16,6 @@ def check_session(id, verify_session_id,db):
         raise HTTPException(status_code=400, detail="유저를 찾을 수 없습니다.")
     session_id = user.account_session_id
     expire = user.session_expire
-    
-    print(session_id)
-    print(verify_session_id)
     # 세션 만료 확인
     if datetime.now()>expire:
         return False

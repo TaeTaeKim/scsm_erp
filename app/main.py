@@ -38,6 +38,7 @@ def auth_process(api_auth,session_checked,render_template,id):
             response.set_cookie('session_id',session_checked)
             return response
     elif not session_checked:
+        print('check')
         response = RedirectResponse('/',status_code = status.HTTP_301_MOVED_PERMANENTLY)
         return response
     
@@ -76,6 +77,7 @@ async def stock_list(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends
 async def stock_management(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
     session_checked = check_session(id, session_id, db)
     auth_item = auth_service.auth_item(id,db)
+    print(auth_item)
     return auth_process(auth_item,session_checked,'stockManagement.html',id)
 
 
