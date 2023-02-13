@@ -1,18 +1,15 @@
-import uvicorn
-
-
-from fastapi import FastAPI,Response,Cookie , Depends
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import RedirectResponse
-from fastapi.exceptions import HTTPException
 import starlette.status as status
-from jinja2 import Environment, FileSystemLoader
-from sqlalchemy.orm import Session
+import uvicorn
+from fastapi import Cookie, Depends, FastAPI, Response
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
-from router import account_router
-from router import auth_router
-from service.auth_service import check_session,AuthService
+from jinja2 import Environment, FileSystemLoader
+
 from database.mysql import get_db
+from router import account_router, auth_router , stock_router
+from service.auth_service import AuthService, check_session
+from sqlalchemy.orm import Session
 
 auth_service = AuthService()
 app = FastAPI()
@@ -24,6 +21,7 @@ templates = Environment(
 app.template_env = templates
 app.include_router(account_router.account_router)
 app.include_router(auth_router.auth_router)
+app.include_router(stock_router.stock_router)
 
 def auth_process(api_auth,session_checked,render_template,id):
     if session_checked:
@@ -84,6 +82,7 @@ async def stock_management(id:str=Cookie(), session_id:str=Cookie(),db:Session=D
 @app.get('/account')
 async def account(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
     session_checked = check_session(id, session_id, db)
+    print(session_checked)
     auth_management = auth_service.auth_account(id,db)
     return auth_process(auth_management,session_checked,'account.html',id)
 

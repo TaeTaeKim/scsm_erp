@@ -32,39 +32,12 @@
                         <th scope="col" >품명</th>
                         <th scope="col" >품번</th>
                         <th scope="col" >수량</th>
-                        <th scope="col" >단위</th>
                         <th scope="col" style="width: 10vw;">상세보기</th>
                         <th scope="col">비고</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>라디에이터</td>
-                        <td>10230</td>
-                        <td>1</td>
-                        <td>EA</td>
-                        <td><button class="popup-button">상세보기</button></td>
-                        <td>대창모터스 부품</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>라디에이터</td>
-                        <td>10230</td>
-                        <td>1</td>
-                        <td>EA</td>
-                        <td><button class="popup-button">상세보기</button></td>
-                        <td>대창모터스 부품</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>라디에이터</td>
-                        <td>10230</td>
-                        <td>1</td>
-                        <td>EA</td>
-                        <td><button class="popup-button" >상세보기</button></td>
-                        <td>대창모터스 부품</td>
-                    </tr>
+                <tbody id="stock_tbody">
+
                 </tbody>
     
             </table>
@@ -75,14 +48,9 @@
     <div id="side-var" class="hidden">
         <div>
             <!-- 추가할 상세정보 표시 -->
-            제품사진
+            <h1 id="stock-sidename"></h1>
+            <img src="../static/img/stockimg/saseo.jpeg" alt="" style="width:100%; height: 30rem;" id="stock_img">
             <div id="stock-detail">
-                <div>제조사: John</div>
-                <div>단가: 25</div>
-                <div>품번 : 10230</div>
-                <div>분류코드 : cool</div>
-                <div>연락처: 023-234-1231</div>
-                <div>email: adfasdf@naver.com</div>
             </div>
             <!-- 발주 등록 -->
             <div id="buy-stock">
@@ -94,7 +62,7 @@
                 <input type="number" name="use-number" id="" min="1">
                 <button>사용등록</button>
             </div>
-            <button class="popup-close">닫기</button>
+            <button class="popup-close" onclick="closeButton()">닫기</button>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@ import starlette.status as status
 from service.account_service import hash_password
 from datetime import datetime, timedelta
 
-EXPIRE_MIN = 2
+EXPIRE_MIN = 5
 
 
 # 세션 데이터 베이스와 쿠키 세션을 비교한다. + 만기도 확인

@@ -30,7 +30,8 @@ CREATE TABLE orderLogs(
     order_log_index INT AUTO_INCREMENT PRIMARY KEY,
     order_type INT NOT NULL,
     order_log_date DATETIME NOT NULL,
-    order_log_num FLOAT(7,2) NOT NULL
+    order_log_num FLOAT(7,2) NOT NULL,
+    order_log_item INT NOT NULL
     
 );
 CREATE TABLE usages(
