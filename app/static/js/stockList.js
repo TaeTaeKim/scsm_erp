@@ -11,7 +11,6 @@ function getStockData(){
         type:'get',
         success:function(res){
             res.forEach(e =>{
-                console.log(e)
                 var index = 1
                 $('#stock_tbody').append(
                     `
@@ -42,7 +41,6 @@ function getDataById(id){
             if(!res){
                 alert('찾는 모델이 없습니다.')
             }else{
-                console.log(res);
                 $('#stock-sidename').text(res.item_name)
                 $('#stock_img').attr('src',`../static/img/stockimg/${res.item_img}`)
                 $('#stock-detail').html(
@@ -60,7 +58,6 @@ function getDataById(id){
 }
 
 function popupButton(id){
-    console.log(id)
     $("#side-var").css("width",'30%');
     $("#side-var").removeClass('hidden');
 

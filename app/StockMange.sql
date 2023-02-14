@@ -10,13 +10,18 @@ CREATE TABLE items(
     item_price INT,
     item_descript TEXT
 );
-
+/*
+0 : 구매요청일
+1 : 발주일
+2 : 입고일
+3 : 취소
+ */
 CREATE TABLE orders(
     order_index INT AUTO_INCREMENT PRIMARY KEY,
     order_item INT NOT NULL,
     order_status INT NOT NULL DEFAULT 0,
     order_num FLOAT(7,2) NOT NULL,
-    order_requestdate DATETIME,
+    order_requestdate DATETIME DEFAULT NOW(),
     order_purchasedate DATETIME,
     order_instockdate DATETIME,
     order_canceldate DATETIME,
@@ -26,14 +31,14 @@ CREATE TABLE orders(
     
 );
 
-CREATE TABLE orderLogs(
+/* CREATE TABLE orderLogs(
     order_log_index INT AUTO_INCREMENT PRIMARY KEY,
     order_type INT NOT NULL,
     order_log_date DATETIME NOT NULL,
     order_log_num FLOAT(7,2) NOT NULL,
     order_log_item INT NOT NULL
     
-);
+); */
 CREATE TABLE usages(
     usage_id INT AUTO_INCREMENT PRIMARY KEY,
     usage_item INT NOT NULL,

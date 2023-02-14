@@ -6,7 +6,7 @@ import starlette.status as status
 from service.account_service import hash_password
 from datetime import datetime, timedelta
 
-EXPIRE_MIN = 5
+EXPIRE_MIN = 60
 
 
 # 세션 데이터 베이스와 쿠키 세션을 비교한다. + 만기도 확인
@@ -24,8 +24,7 @@ def check_session(id, verify_session_id,db):
         raise HTTPException(status_code=400, detail="잘못된 세션입니다.")
     else:
         now = datetime.now()
-        if int((expire - now).total_seconds()) <= 60:
-            user.session_expire = now+timedelta(minutes=EXPIRE_MIN)
+        user.session_expire = now+timedelta(minutes=EXPIRE_MIN)
 
         new_session_id = hash_password(user.account_id + now.strftime('%X'))
         user.account_session_id = str(new_session_id)

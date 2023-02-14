@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from jinja2 import Environment, FileSystemLoader
 
 from database.mysql import get_db
-from router import account_router, auth_router , stock_router
+from router import account_router, auth_router , stock_router, order_router
 from service.auth_service import AuthService, check_session
 from sqlalchemy.orm import Session
 
@@ -22,6 +22,7 @@ app.template_env = templates
 app.include_router(account_router.account_router)
 app.include_router(auth_router.auth_router)
 app.include_router(stock_router.stock_router)
+app.include_router(order_router.order_router)
 
 def auth_process(api_auth,session_checked,render_template,id):
     if session_checked:

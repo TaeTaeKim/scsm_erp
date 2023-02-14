@@ -151,7 +151,6 @@ $('#idcheck').click(
 //권한 저장
 function saveauth(id){
     var id = id;
-    console.log(id);
     var order = $(`#${id}-order`).is(':checked');
     var instock = $(`#${id}-instock`).is(':checked');
     var item = $(`#${id}-item`).is(":checked");
