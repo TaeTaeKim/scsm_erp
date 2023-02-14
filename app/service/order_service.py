@@ -39,17 +39,20 @@ class OrderService() :
 
     def check_instock(self,order_id,ischeck,db):
         order = db.query(OrderModel).filter(OrderModel.order_index==order_id).one_or_none()
+        item = db.query(ItemModel).filter(ItemModel.item_code==order.order_item).one_or_none()
         if not order:
             return False
         
         if ischeck:
             order.order_status = 2
             order.order_instockdate = datetime.now()
+            item.item_stock += order.order_num
             db.commit()
             return True
         else:
             order.order_status = 1
             order.order_instockdate = None
+            item.item_stock -= order.order_num
             db.commit()
             return True
     
