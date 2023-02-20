@@ -8,7 +8,8 @@ CREATE TABLE items(
     item_email VARCHAR(50),
     item_img VARCHAR(255),
     item_price INT,
-    item_descript TEXT
+    item_descript TEXT,
+    item_purchase VARCHAR(255),
 );
 /*
 0 : 구매요청일
