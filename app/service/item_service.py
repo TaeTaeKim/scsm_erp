@@ -7,7 +7,9 @@ import os
 
 class ItemService():
     def __init__(self) -> None:
-    
+        with open("/home/scsm_erp/app/database/credential.json") as file:
+            jsonfile  = json.load(file)
+            self.img_path = jsonfile['Imgpath']
         return
     def add_item(self,item_schema,db):
         item = db.query(ItemModel).filter(ItemModel.item_code==item_schema.item_code).one_or_none()
@@ -26,7 +28,7 @@ class ItemService():
             return {'result':False,'message':'ItemNotFound'}
         # 파일을 저장할 떄 품목으로 저장하도록 수정필요 -> 나중에 업데이트에도 덮어써지게 된다.
         filename = str(item_id)
-        path = os.path.join("/Users/tykim/stock_management/app/static/img/stockimg", filename)
+        path = os.path.join(self.img_path, filename)
         with open(path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
@@ -68,7 +70,7 @@ class ItemService():
 
     def delete_item(self,item_id, db):
         # 관련 사진을 지우는 코드
-        remove_path ='/Users/tykim/stock_management/app/static/img/stockimg/'+str(item_id)
+        remove_path =self.img_paht+'/'+str(item_id)
         os.remove(remove_path)
         
         # 실제 데이터를 db에서 삭제하는 함수.

@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 import json
 
-with open("/Users/tykim/stock_management/app/database/credential.json") as file:
+with open("/home/scsm_erp/app/database/credential.json") as file:
     credential = json.load(file)
 
 SQLALCHEMY_DATABASE_URL_DATA = f"mysql+pymysql://{credential['mysql']['user']}:{credential['mysql']['password']}@{credential['mysql']['host']}:{credential['mysql']['port']}/{credential['mysql']['database']}"
