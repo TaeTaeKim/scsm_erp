@@ -3,6 +3,7 @@ import shutil
 from models.stock_model import ItemModel
 from models.order_model import OrderModel
 from models.usage_model import UsageModel
+import json
 import os
 
 class ItemService():
@@ -70,7 +71,7 @@ class ItemService():
 
     def delete_item(self,item_id, db):
         # 관련 사진을 지우는 코드
-        remove_path =self.img_paht+'/'+str(item_id)
+        remove_path =self.img_path+'/'+str(item_id)
         os.remove(remove_path)
         
         # 실제 데이터를 db에서 삭제하는 함수.

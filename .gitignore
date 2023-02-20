@@ -2,3 +2,4 @@ stockmanage_venv/
 
 *.json
 scsm_erp/
+__pycache__/

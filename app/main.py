@@ -90,4 +90,4 @@ def account(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db))
 
 
 if __name__ =="__main__":
-    uvicorn.run(app,debug =True)
+    uvicorn.run(app,port=80)
