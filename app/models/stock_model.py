@@ -19,3 +19,4 @@ class ItemModel(data_base):
     item_img = Column(String)
     item_price = Column(Integer)
     item_descript = Column(Text)
+    item_purchase = Column(String)

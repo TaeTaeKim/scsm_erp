@@ -44,6 +44,7 @@ CREATE TABLE usages(
     usage_item INT NOT NULL,
     usage_num FLOAT(7,2) NOT NULL,
     usage_date DATE NOT NULL,
+    usage_check BOOLEAN DEFAULT 0,
 
     CONSTRAINT FOREIGN KEY(usage_item) REFERENCES items(item_code) ON DELETE CASCADE
 

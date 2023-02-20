@@ -15,60 +15,64 @@
         <!-- 물품등록 -->
         <div id="add_stock">
             <h2>물품관리</h2>
-            <img src="" alt="" id="stockimg_add">
-            <form action="" method="post" id="stock_form">
-                <div>
-                    <input class="primary_info" type="file" name="imgfile" id="addimg">
-                </div>
+            <form  id="stock_form">
                 <div>
                     <label for="stock_name">품명</label>
-                    <input class="primary_info" type="text" name="stock_name" id="" required>
+                    <input class="primary_info" type="text" name="stock_name" id="stock_name" required>
                 </div>
                 <div>
                     <label for="stock_id">품번</label>
-                    <input class="primary_info" type="text" name="stock_id" id="" required>
+                    <input class="primary_info" type="text" name="stock_id" id="stock_id" required>
                 </div>
                 <div>
                     <label for="stock_purchase">구매처</label>
-                    <input class="primary_info" type="text" name="stock_purchase" id="">
+                    <input class="primary_info" type="text" name="stock_purchase" id="stock_purchase">
                 </div>
                 <div>
                     <label for="stock_num">수량</label>
-                    <input class="primary_info" type="number" name="stock_num" id="">
+                    <input class="primary_info" type="number" name="stock_num" id="stock_num">
                 </div>
                 <div>
                     <label for="stock_unit">단위</label>
-                    <input class="primary_info" type="text" name="stock_unit" id="">
+                    <input class="primary_info" type="text" name="stock_unit" id="stock_unit" required>
                 </div>
                 <div>
                     <label for="stock_unit">제조사</label>
-                    <input class="primary_info" type="text" name="stock_manufacture" id="">
+                    <input class="primary_info" type="text" name="stock_manufacture" id="stock_manufacture">
                 </div>
                 <div>
                     <label for="stock_unit">단가</label>
-                    <input class="primary_info" type="number" name="stock_price" id="">
+                    <input class="primary_info" type="number" name="stock_price" id="stock_price">
                 </div>
                 
                 
                 <div id="stock_tel">
                     <label for="purchase_num">연락처</label>
                     <div>
-                        <input type="tel" name="purchase_num_0" id="" pattern="[0-9]{3}" placeholder="010">
+                        <input type="tel" name="purchase_num_0" id="purchase_num_0" pattern="" placeholder="010">
                         <span>-</span>
-                        <input type="tel" name="purchase_num_1" id=""  placeholder="1234">
+                        <input type="tel" name="purchase_num_1" id="purchase_num_1"  placeholder="1234">
                         <span>-</span>
-                        <input type="tel" name="purchase_num_2" id="" placeholder="1234">
+                        <input type="tel" name="purchase_num_2" id="purchase_num_2" placeholder="1234">
                     </div>
                 </div>
                 <div>
                     <label for="purchase_email">이메일</label>
-                    <input class="primary_info" type="email" name="purchase_email" id="" placeholder="example@gmail.com">
+                    <input class="primary_info" type="email" name="purchase_email" id="purchase_email" placeholder="example@gmail.com">
+                </div>
+                <div>
+                    <label for="stock_descript">설명</label>
+                    <input type="text" class="primary_info"name="stock_descript" id="stock_descript">
+                </div>
+                <img src="" alt="" id="stockimg_add">
+                <div>
+                    <input class="primary_info" type="file" name="imgfile" id="addimg">
                 </div>
                 <div>
 
-                    <input class="submit_button" type="submit" name="add_button" id="" value="등록">
-                    <input class="submit_button" type="submit" name="update_button" id="" value="수정">
-                    <input class="submit_button" type="submit" name="delete_button" id="" value="삭제">
+                    <input class="submit_button" type="button" name="add_button" id="add_button" value="등록">
+                    <input class="submit_button" type="button" name="update_button" id="update_button" value="수정">
+                    <input class="submit_button" type="button" name="delete_button" id="delete_button" value="삭제">
                 </div>
                 
             </form>
@@ -82,16 +86,17 @@
     <div id="stock_detail">
         <div id="stock_detail_top">
             <div id="stock_img" >
-                <img src="" alt="">
+                <img src="" alt="" id="stock_img_detail">
             </div>
 
             <div id="stock_info">
                 <p>품명 : ㅁㄴㅇㄹ</p>
                 <p>품번 : </p>
                 <p>재고 : 0<span>EA</span></p>
+                <p>제조사 : </p>
                 <p>구매처 : </p>
-                <p>연락처 : </p>
-                <p>이메일 : </p>
+                <p>구매처전화번호 : </p>
+                <p>구매처이메일 : </p>
                 <p>설명 : </p>
             </div>
         </div>
@@ -141,15 +146,7 @@
                     <th scope="col" >품번</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>라디에이터</td>
-                    <td>10230</td>
-                </tr>
-                <tr>
-                    <td>라디에이터</td>
-                    <td>10230</td>
-                </tr>
+            <tbody id="right_stock_list_tbody">
             </tbody>
 
         </table>

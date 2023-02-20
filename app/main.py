@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from jinja2 import Environment, FileSystemLoader
 
 from database.mysql import get_db
-from router import account_router, auth_router , stock_router, order_router
+from router import account_router, auth_router , stock_router, order_router,item_router
 from service.auth_service import AuthService, check_session
 from sqlalchemy.orm import Session
 
@@ -23,6 +23,7 @@ app.include_router(account_router.account_router)
 app.include_router(auth_router.auth_router)
 app.include_router(stock_router.stock_router)
 app.include_router(order_router.order_router)
+app.include_router(item_router.item_router)
 
 def auth_process(api_auth,session_checked,render_template,id):
     if session_checked:
@@ -43,18 +44,18 @@ def auth_process(api_auth,session_checked,render_template,id):
     
 
 @app.get('/')
-async def index():
+def index():
     template = app.template_env.get_template('login.html')
     return Response(content=template.render(), media_type="text/html")
 
 @app.get('/unauthorization')
-async def unauthorize():
+def unauthorize():
     template = app.template_env.get_template('unauthorized.html')
     return Response(content=template.render(), media_type='text/html')
 
 
 @app.get('/stock_list')
-async def stock_list(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
+def stock_list(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
     session_checked = check_session(id, session_id, db)
     if session_checked:
         template = app.template_env.get_template('stockList.html')
@@ -66,14 +67,14 @@ async def stock_list(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends
         return response
 
 @app.get('/order_list')
-async def stock_list(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
+def stock_list(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
     session_checked = check_session(id, session_id, db)
     auth_order = auth_service.auth_order(id,db)
     return auth_process(auth_order,session_checked,'orderList.html',id)
         
 
 @app.get('/stock_management')
-async def stock_management(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
+def stock_management(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
     session_checked = check_session(id, session_id, db)
     auth_item = auth_service.auth_item(id,db)
     print(auth_item)
@@ -81,7 +82,7 @@ async def stock_management(id:str=Cookie(), session_id:str=Cookie(),db:Session=D
 
 
 @app.get('/account')
-async def account(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
+def account(id:str=Cookie(), session_id:str=Cookie(),db:Session=Depends(get_db)):
     session_checked = check_session(id, session_id, db)
     print(session_checked)
     auth_management = auth_service.auth_account(id,db)

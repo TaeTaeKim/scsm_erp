@@ -7,7 +7,11 @@ from datetime import datetime
 class OrderService() :
     def __init__(self) -> None:
         return
-
+    def make_order(self,order_data, db):
+        order = OrderModel(**order_data.dict())
+        db.add(order)
+        db.commit()
+        return {'result':True}
     def get_orders(self ,db):
         result = db.query(OrderModel,ItemModel).outerjoin(ItemModel,OrderModel.order_item==ItemModel.item_code).all()
         orders = []

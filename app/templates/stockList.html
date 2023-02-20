@@ -49,21 +49,36 @@
         <div>
             <!-- 추가할 상세정보 표시 -->
             <h1 id="stock-sidename"></h1>
-            <img src="../static/img/stockimg/saseo.jpeg" alt="" style="width:100%; height: 30rem;" id="stock_img">
+            <img src="" alt="" style="width:100%; height: 20rem;" id="stock_img">
             <div id="stock-detail">
             </div>
             <!-- 발주 등록 -->
             <div id="buy-stock">
-                <input type="number" name="buy-number" min="1">
-                <button>발주하기</button>
+                <input type="number" name="buy-number" id="buy-number" min="1">
+                <button onclick="makeOrder()">발주하기</button>
             </div>
             <!-- 사용 등록 -->
             <div id="use-stock">
-                <input type="number" name="use-number" id="" min="1">
-                <button>사용등록</button>
+                <input type="number" name="use-number" id="use-number" min="1">
+                <button onclick="makeUsage()">사용등록</button>
             </div>
             <button class="popup-close" onclick="closeButton()">닫기</button>
         </div>
+
+
+        <h3>사용등록</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>사용개수</th>
+                    <th>사용등록일</th>
+                    <th>사용확인</th>
+                </tr>
+            </thead>
+            <tbody id="stock_usage_tbody">
+            </tbody>
+
+        </table>
     </div>
 </div>
 

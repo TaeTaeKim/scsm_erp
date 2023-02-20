@@ -1,8 +1,6 @@
 from models.account_model import AccountModel
 import bcrypt
 from fastapi import HTTPException
-from fastapi.responses import RedirectResponse
-import starlette.status as status
 from service.account_service import hash_password
 from datetime import datetime, timedelta
 
