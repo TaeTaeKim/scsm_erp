@@ -1,5 +1,6 @@
 from models.usage_model import UsageModel
 from models.stock_model import ItemModel
+from sqlalchemy import func
 class UsageService():
     def __init__(self) -> None:
         return
@@ -28,4 +29,12 @@ class UsageService():
             usage.usage_check = False
             db.commit()
         return
-        
+
+    def get_usage(self, db):
+        usages = db.query(UsageModel.usage_item,func.count(UsageModel.usage_item)).filter(UsageModel.usage_check==False).group_by(UsageModel.usage_item).all()
+        return [{'item_code':row[0], 'count':row[1]} for row in usages ]  
+
+    def cancel_usage(self,usage_id,db):
+        db.query(UsageModel).filter(UsageModel.usage_id==usage_id).delete()
+        db.commit()
+        return True      

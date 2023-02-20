@@ -205,7 +205,7 @@ function get_stock(){
         type:'get',
         async:true,
         success:function(res){
-            res.forEach(e => {
+            res.item.forEach(e => {
 
                 $('#right_stock_list_tbody').append(
                     `
@@ -223,7 +223,8 @@ function get_stock(){
 
 function click_item(id){
     clicked_item = id
-    console.log(clicked_item)
+    // 로그 테이블 초기화
+    $("#stock_log_tbody").html("");
     $.ajax({
         url:'/stocklist/find_by_id',
         type:'GET',
@@ -294,5 +295,27 @@ function fill_itemdetail(item){
         <p>설명 : ${item.item_descript}</p>
         `
     )
+
+    // 로그를 가져오는 request ajax
+    $.ajax({
+        url:'/item/item_log',
+        type:'GET',
+        data:{
+            item_id : item.item_code
+        },
+        success:function(res){
+            res.forEach(e => {
+                $("#stock_log_tbody").append(
+                    `
+                    <tr>
+                        <td>${e.type}</td>
+                        <td>${e.date}</td>
+                        <td>${e.num}${item.item_unit}</td>
+                    </tr>
+                    `
+                )
+            })
+        }
+    })
 }
 

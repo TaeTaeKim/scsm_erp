@@ -1,5 +1,8 @@
+
 import shutil
 from models.stock_model import ItemModel
+from models.order_model import OrderModel
+from models.usage_model import UsageModel
 import os
 
 class ItemService():
@@ -74,6 +77,37 @@ class ItemService():
         return {'result':True}
 
     ## 아이템에 대한 모든 로그를 가져오는 서비스
-    # def item_log(self,item_id,db):
+    def get_logs(self,id,db):
+        result = []
+        orders = db.query(OrderModel).filter(OrderModel.order_item==id).all()
+        usages = db.query(UsageModel).filter(UsageModel.usage_item==id).all()
+
+        for order in orders:
+            format_order_data(result,order.__dict__)
+
+        for usage in usages:
+            format_usage_data(result,usage.__dict__)
+
+        result.sort(key=lambda x : x['date'])
+        return result
         
-        
+
+
+def format_order_data(result,row):
+    if row["order_requestdate"] is not None:
+        result.append({'type':'구매요청','num':row['order_num'],'date':row["order_requestdate"]})
+    if row["order_purchasedate"] is not None:
+        result.append({'type':'발주','num':row['order_num'],'date':row["order_purchasedate"]})
+    if row["order_instockdate"] is not None:
+        result.append({'type':'입고','num':row['order_num'],'date':row["order_instockdate"]})
+    if row["order_canceldate"] is not None:
+        result.append({'type':'취소','num':row['order_num'],'date':row["order_canceldate"]})
+    
+
+    return
+
+
+def format_usage_data(result,row):
+    if row['usage_check']:
+        result.append({'type':'사용','num':row['usage_num'],'date':row['usage_date']})
+    return

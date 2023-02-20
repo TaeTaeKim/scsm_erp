@@ -36,3 +36,9 @@ async def update_item(original_item:int,new_item_data:ItemIn, db:Session=Depends
 async def delete_item(item_id:int,db:Session=Depends(get_db)):
     result = item_service.delete_item(item_id,db)
     return result
+
+
+@item_router.get('/item_log')
+async def get_log(item_id : int,db:Session=Depends(get_db)):
+    result = item_service.get_logs(item_id,db)
+    return result

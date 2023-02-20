@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    getStockData()
+    getStockData();
     
 })
 
@@ -10,21 +10,30 @@ function getStockData(){
         url:'/stocklist/get_stock',
         type:'get',
         success:function(res){
-            res.forEach(e =>{
-                var index = 1
+            var index = 1
+            res.item.forEach(e =>{
                 $('#stock_tbody').append(
                     `
                     <tr>
                         <th scope="row">${index}</th>
                         <td>${e.item_name}</td>
                         <td>${e.item_code}</td>
-                        <td>${e.item_stock}${e.item_unit}</td>
+                        <td id="${e.item_code}-num">${e.item_stock}${e.item_unit}</td>
                         <td><button class="popup-button" id="${e.item_code}" onclick='popupButton(this.id)'>상세보기</button></td>
                         <td>${e.item_descript}</td>
                     </tr>
                     `
                 )
                 index ++;
+            })
+
+            res.usage.forEach(e=>{
+                console.log(e)
+                $(`#${e.item_code}-num`).append(
+                    `
+                    <span style="color:red;">(${e.count}건)</span>
+                    `
+                )
             })
         }
     })
@@ -139,7 +148,6 @@ function getUsage(id){
             item_code : id
         },
         success:function(res){
-            console.log(res);
             if(res.result){
                 res.usages.forEach( e => {
                     $('#stock_usage_tbody').append(
@@ -148,6 +156,7 @@ function getUsage(id){
                             <td id="${e.usage_id}-num">${e.usage_num}</td>
                             <td>${e.usage_date}</td>
                             <td><input type="checkbox" onclick="usageCheck(this.id)" id="${e.usage_id}-${e.usage_item}"></td>
+                            <td><input type="checkbox" onclick="cancelCheck(this.id)" id="${e.usage_id}-cancel"></td>
                         </tr>
                         `
                     )
@@ -176,8 +185,22 @@ function usageCheck(id){
             use_num : use_num
 
         },
-        // success:function(){
-        //     window.location.reload();
-        // }
+        success:function(){
+            window.location.reload();
+        }
+    })
+}
+
+function cancelCheck(id){
+    var usage_id = id.split('-')[0];
+    $.ajax({
+        url:'/stocklist/cancel_usage',
+        type:'GET',
+        data:{
+            usage_id : usage_id
+        },
+        success:function(){
+            window.location.reload();
+        }
     })
 }

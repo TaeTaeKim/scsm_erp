@@ -22,9 +22,16 @@ order_service = OrderService()
 auth_service = AuthService()
 usage_service = UsageService()
 @stock_router.get('/get_stock')
-async def get_stock(db:Session=Depends(get_db)) -> list:
+async def get_stock(db:Session=Depends(get_db)):
     items = stock_service.get_stockdata(db)
-    return items
+    usages =usage_service.get_usage(db)
+    return {'item':items,'usage':usages}
+
+@stock_router.get('/get_all_usage')
+async def get_all_usage(db:Session=Depends(get_db)):
+    usages =usage_service.get_usage(db)
+    print(usages)
+    return usages
 
 @stock_router.get('/find_by_id')
 async def find_by_id(id:int, db:Session = Depends(get_db)):
@@ -54,4 +61,10 @@ async def use_stock(item_code : int, use_num:float,db:Session=Depends(get_db)):
 @stock_router.get('/use_check')
 async def use_check(usage_id:int,item_code : int,ischeck:bool,use_num:float, db:Session=Depends(get_db)):
     result = usage_service.usage_check(usage_id,item_code,ischeck,use_num,db)
+    return result
+
+
+@stock_router.get('/cancel_usage')
+async def cancel_usage(usage_id:int, db:Session=Depends(get_db)):
+    result = usage_service.cancel_usage(usage_id,db)
     return result
