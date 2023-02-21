@@ -84,12 +84,12 @@ class ItemService():
         result = []
         orders = db.query(OrderModel).filter(OrderModel.order_item==id).all()
         usages = db.query(UsageModel).filter(UsageModel.usage_item==id).all()
-
-        for order in orders:
-            format_order_data(result,order.__dict__)
-
-        for usage in usages:
-            format_usage_data(result,usage.__dict__)
+        if orders:
+            for order in orders:
+                format_order_data(result,order.__dict__)
+        if usages:
+            for usage in usages:
+                format_usage_data(result,usage.__dict__)
 
         result.sort(key=lambda x : x['date'])
         return result
