@@ -9,7 +9,7 @@ CREATE TABLE items(
     item_img VARCHAR(255),
     item_price INT,
     item_descript TEXT,
-    item_purchase VARCHAR(255),
+    item_purchase VARCHAR(255)
 );
 /*
 0 : 구매요청일
@@ -44,7 +44,7 @@ CREATE TABLE usages(
     usage_id INT AUTO_INCREMENT PRIMARY KEY,
     usage_item INT NOT NULL,
     usage_num FLOAT(7,2) NOT NULL,
-    usage_date DATE NOT NULL,
+    usage_date DATETIME NOT NULL,
     usage_check BOOLEAN DEFAULT 0,
 
     CONSTRAINT FOREIGN KEY(usage_item) REFERENCES items(item_code) ON DELETE CASCADE

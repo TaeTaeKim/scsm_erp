@@ -1,5 +1,5 @@
 from database.mysql import data_base
-from sqlalchemy import Column, Float,Date,Integer
+from sqlalchemy import Column, Float,Integer, DateTime
 from datetime import datetime
 
 
@@ -12,7 +12,7 @@ class OrderModel(data_base):
     order_item = Column(Integer, nullable=False)
     order_status = Column(Integer, nullable=False, default=0)
     order_num = Column(Float, nullable=False)
-    order_requestdate = Column(Date, default=datetime.now())
-    order_purchasedate = Column(Date)
-    order_instockdate = Column(Date)
-    order_canceldate =  Column(Date)
+    order_requestdate = Column(DateTime, default=datetime.now())
+    order_purchasedate = Column(DateTime)
+    order_instockdate = Column(DateTime)
+    order_canceldate =  Column(DateTime)
